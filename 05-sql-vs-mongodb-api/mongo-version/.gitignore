@@ -1,0 +1,7 @@
+# Ignore all .env files containing sensitive keys/passwords
+.env
+.env.*
+*.env
+
+# Ensure example/template files are tracked
+!.env.example
