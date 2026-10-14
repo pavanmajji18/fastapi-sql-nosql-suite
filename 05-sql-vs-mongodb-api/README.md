@@ -29,8 +29,8 @@ A side-by-side comparative study and reference implementation of a **Task Manage
 
 This directory features two complete, standalone implementations of the exact same Task Management API specification:
 
-1. **[`postgres-version/`](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/05-sql-vs-mongodb-api/postgres-version)**: Uses **PostgreSQL** with **SQLAlchemy 2.0 (Async Engine)** and **asyncpg** driver.
-2. **[`mongo-version/`](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/05-sql-vs-mongodb-api/mongo-version)**: Uses **MongoDB** with **Motor** (`AsyncIOMotorClient`) for async document operations.
+1. **[`postgres-version/`](./postgres-version)**: Uses **PostgreSQL** with **SQLAlchemy 2.0 (Async Engine)** and **asyncpg** driver.
+2. **[`mongo-version/`](./mongo-version)**: Uses **MongoDB** with **Motor** (`AsyncIOMotorClient`) for async document operations.
 
 Both implementations expose identical HTTP endpoints for managing **Projects** and **Tasks**, allowing developers to compare schema enforcement, primary key strategies (`UUIDv4` vs `BSON ObjectId`), query paradigms, and referential integrity mechanisms.
 

@@ -103,28 +103,28 @@ fastapi-sql-nosql/
 
 ## 🛠 Module Breakdown
 
-### [01. Student Management REST API](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/01-student-management-api)
-- **Directory:** [`01-student-management-api/`](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/01-student-management-api)
+### [01. Student Management REST API](./01-student-management-api)
+- **Directory:** [`01-student-management-api/`](./01-student-management-api)
 - **Key Concepts:** Fundamentals of REST APIs (`GET`, `POST`, `PUT`, `PATCH`, `DELETE`), status code handling (`201 Created`, `204 No Content`, `422 Unprocessable Entity`), query parameter filtering (`major`, `min_gpa`), and in-memory persistence.
 
-### [02. Course Management API (Auth & Rate Limiting)](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/02-course-api-pydantic)
-- **Directory:** [`02-course-api-pydantic/`](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/02-course-api-pydantic)
+### [02. Course Management API (Auth & Rate Limiting)](./02-course-api-pydantic)
+- **Directory:** [`02-course-api-pydantic/`](./02-course-api-pydantic)
 - **Key Concepts:** Multi-file modular app layout, native API Key header security (`X-API-Key`), rolling window client IP rate-limiting (`429 Too Many Requests`), and partial model updates via `model_dump(exclude_unset=True)`.
 
-### [03. FastAPI + Neon PostgreSQL API](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/03-fastapi-neon-postgresql)
-- **Directory:** [`03-fastapi-neon-postgresql/`](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/03-fastapi-neon-postgresql)
+### [03. FastAPI + Neon PostgreSQL API](./03-fastapi-neon-postgresql)
+- **Directory:** [`03-fastapi-neon-postgresql/`](./03-fastapi-neon-postgresql)
 - **Key Concepts:** Connecting FastAPI to cloud-hosted serverless PostgreSQL ([Neon DB](https://neon.tech)), raw SQL parameterized execution using SQLAlchemy `text()`, schema migration execution, and environment configuration with `.env`.
 
-### [04. E-Commerce SQL Relationships API](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/04-ecommerce-sql-relationships)
-- **Directory:** [`04-ecommerce-sql-relationships/`](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/04-ecommerce-sql-relationships)
+### [04. E-Commerce SQL Relationships API](./04-ecommerce-sql-relationships)
+- **Directory:** [`04-ecommerce-sql-relationships/`](./04-ecommerce-sql-relationships)
 - **Key Concepts:** Multi-table database design (`users`, `products`, `orders`, `order_items`), `1:M` relationships with Foreign Keys, row-level stock locks (`with_for_update`) to prevent race conditions, automated inventory restoration on cancellation, and SQL analytical queries with `JOIN`, `GROUP BY`, and `SUM`.
 
-### [05. SQL vs MongoDB Task API Comparison](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/05-sql-vs-mongodb-api)
-- **Directory:** [`05-sql-vs-mongodb-api/`](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/05-sql-vs-mongodb-api)
+### [05. SQL vs MongoDB Task API Comparison](./05-sql-vs-mongodb-api)
+- **Directory:** [`05-sql-vs-mongodb-api/`](./05-sql-vs-mongodb-api)
 - **Key Concepts:** Dual implementation of an identical Task Management specification comparing **PostgreSQL** (`SQLAlchemy 2.0` + `asyncpg` + `UUIDv4`) vs **MongoDB** (`Motor` + `BSON ObjectId`). Analyzes key differences in referential integrity, primary keys, and query paradigms.
 
-### [06. MongoDB Support Ticket API](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/06-mongodb-support-ticket-api)
-- **Directory:** [`06-mongodb-support-ticket-api/`](file:///d:/Euron/Work%20and%20Learn%20Super%2030/Python/Tasks/fastapi-sql-nosql/06-mongodb-support-ticket-api)
+### [06. MongoDB Support Ticket API](./06-mongodb-support-ticket-api)
+- **Directory:** [`06-mongodb-support-ticket-api/`](./06-mongodb-support-ticket-api)
 - **Key Concepts:** Asynchronous document data modeling using `Motor`. Stores customer info and comment threads as embedded documents inside tickets, performs atomic `$push` updates, creates compound indexes, and executes MongoDB `$text` search queries.
 
 ---

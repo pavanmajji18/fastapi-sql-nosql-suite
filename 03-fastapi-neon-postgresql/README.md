@@ -9,8 +9,54 @@ A production-grade RESTful API built with **FastAPI**, **SQLAlchemy** (raw SQL e
 
 ---
 
+## 🏛️ Subfolder Architecture Flow (HLD in 5 Seconds)
+
+```mermaid
+flowchart LR
+    Client["Client Request"] --> FastAPI["FastAPI (Pydantic Validation)"]
+    FastAPI --> Depends["Depends(get_db)"]
+    Depends --> Engine["SQLAlchemy Engine"]
+    Engine --> Neon[("Neon Pooled PostgreSQL (students / courses / enrollments)")]
+```
+
+```text
+Client Request ──> FastAPI (Pydantic Validation) ──> Depends(get_db) ──> SQLAlchemy Engine ──> Neon Pooled PostgreSQL (students / courses / enrollments)
+```
+
+---
+
+## ⚡ One-Command Quick Start & .env.example
+
+Get the API running locally in seconds with a single chained command:
+
+```bash
+cp .env.example .env && pip install -r requirements.txt && uvicorn main:app --reload
+```
+
+### 🔐 Subfolder Environment Configuration (`.env.example`)
+
+The `.env.example` template is directly available in this subfolder (`03-fastapi-neon-postgresql/.env.example`):
+
+```ini
+DATABASE_URL=postgresql+psycopg2://user:pass@ep-xyz-pooler.region.aws.neon.tech/neondb?sslmode=require
+```
+
+### 🚀 Exact Startup Command
+
+Launch the FastAPI application with live auto-reload from this subfolder root:
+
+```bash
+uvicorn main:app --reload
+```
+
+> **Base URL:** `http://127.0.0.1:8000` &nbsp;|&nbsp; **Interactive Swagger UI:** `http://127.0.0.1:8000/docs` &nbsp;|&nbsp; **ReDoc:** `http://127.0.0.1:8000/redoc`
+
+---
+
 ## 📋 Table of Contents
 
+- [Subfolder Architecture Flow (HLD)](#️-subfolder-architecture-flow-hld-in-5-seconds)
+- [One-Command Quick Start & .env.example](#-one-command-quick-start--envexample)
 - [Overview](#-overview)
 - [Key Features](#-key-features)
 - [Architecture & Tech Stack](#-architecture--tech-stack)
@@ -66,13 +112,14 @@ This service manages a relational domain model for **Students**, **Courses**, an
 03-fastapi-neon-postgresql/
 │
 ├── app/
-│   ├── __init__.py
+│   ├── __init__.py       # Package marker
 │   ├── database.py       # SQLAlchemy engine & session dependency (get_db)
 │   ├── main.py           # FastAPI application & SQL endpoint definitions
 │   └── schemas.py        # Pydantic validation models (Student, Course, Enrollment)
 │
-├── .env.example          # Database connection string template
+├── .env.example          # Neon Pooled PostgreSQL connection string template
 ├── .gitignore
+├── main.py               # Root ASGI entrypoint (uvicorn main:app --reload)
 ├── schema.sql            # DDL script for database tables & FK constraints
 ├── requirements.txt      # Python dependencies
 └── README.md             # Project documentation
@@ -143,13 +190,13 @@ This service manages a relational domain model for **Students**, **Courses**, an
    ```
 
 4. **Configure Environment Variables:**
-   Copy `.env.example` to `.env` and paste your Neon PostgreSQL connection string:
+   Copy `.env.example` to `.env` and verify your Neon PostgreSQL pooled connection string:
    ```bash
    cp .env.example .env
    ```
-   *Example `.env`:*
+   *Subfolder `.env.example`:*
    ```ini
-   DATABASE_URL=postgresql://<user>:<password>@<neon-hostname>/<dbname>?sslmode=require
+   DATABASE_URL=postgresql+psycopg2://user:pass@ep-xyz-pooler.region.aws.neon.tech/neondb?sslmode=require
    ```
 
 ---
@@ -190,11 +237,13 @@ CREATE TABLE IF NOT EXISTS enrollment (
 
 ### Running the Server
 
-Launch the ASGI server with auto-reload:
+Launch the ASGI server with auto-reload using the exact startup command:
 
 ```bash
-uvicorn app.main:app --reload --port 8000
+uvicorn main:app --reload
 ```
+
+*(Alternatively, you can also launch via: `uvicorn app.main:app --reload --port 8000`)*
 
 Access point URLs:
 - **Base URL:** `http://127.0.0.1:8000`
